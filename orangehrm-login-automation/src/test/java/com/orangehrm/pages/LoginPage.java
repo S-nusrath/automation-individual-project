@@ -32,8 +32,23 @@ public class LoginPage {
     }
 
     public String getErrorMessage() {
-        return driver.findElement(errorMsg).getText();
+
+    // For invalid login alert
+    if (driver.findElements(
+            By.xpath("//p[contains(@class,'oxd-alert-content-text')]")
+        ).size() > 0) {
+
+        return driver.findElement(
+            By.xpath("//p[contains(@class,'oxd-alert-content-text')]")
+        ).getText();
     }
+
+    // For required field message
+    return driver.findElement(
+        By.xpath("//span[contains(@class,'oxd-input-field-error-message')]")
+    ).getText();
+}
+
 
     public void login(String user, String pass) {
         enterUsername(user);
