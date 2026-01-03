@@ -1,33 +1,36 @@
-**Student Name:** Shaik Nusrath  
-**Milestone:** 1  
+# OrangeHRM Demo Login Automation
 
+Student Name: Shaik Nusrath  
+Milestone: 1   
 
-## Project Overview
+## Project Description
+This project automates the login functionality of the OrangeHRM demo application using Selenium WebDriver, TestNG, Maven, and Page Object Model (POM).
 
-This project is an **automated login testing suite** for the OrangeHRM demo site using:
+## Tech Stack
+- Java
+- Selenium WebDriver
+- TestNG
+- Maven
+- ChromeDriver
 
-- **Selenium WebDriver** – to interact with the browser  
-- **TestNG** – to manage and run test cases  
-- **Maven** – for dependency management and build  
+## Framework Design
+- Page Object Model (POM)
+- BaseTest for browser setup & teardown
+- Screenshot capture on test failure
+- Maven Surefire Plugin for execution
 
-The automation tests various login scenarios to ensure the application behaves as expected.
+## Test Cases Automated
+1. Valid username & valid password
+2. Valid username & invalid password
+3. Invalid username & valid password
+4. Invalid username & invalid password
+5. Empty username
+6. Empty password
+7. Empty username & empty password
+8. Username with spaces
+9. Password field masked
+10. Login button enabled
 
----
-
-## Test Cases Implemented
-
-| #  | Test Case Description                      | Expected Result |
-|----|-------------------------------------------|----------------|
-| 1  | Correct username, correct password        | Login successful, redirect to dashboard |
-| 2  | Correct username, wrong password          | Show error “Invalid credentials” |
-| 3  | Wrong username, correct password          | Show error “Invalid credentials” |
-| 4  | Wrong username, wrong password            | Show error “Invalid credentials” |
-| 5  | Blank username, valid password            | Show error “Username cannot be empty” |
-| 6  | Valid username, blank password            | Show error “Password cannot be empty” |
-| 7  | Blank username, blank password            | Show error “Username cannot be empty” |
-| 8  | special characters in username | Show error / input not accepted |
-| 9  | special characters in password | Show error / input not accepted |
-| 10 | Locked or disabled user credentials       | Show error “User is locked” |
-
-
-
+## Execution
+gitbash
+mvn clean test
